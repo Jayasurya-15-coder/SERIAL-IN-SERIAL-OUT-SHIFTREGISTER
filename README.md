@@ -1,10 +1,10 @@
 ### NAME:JAYASURYA B
 ### REG NO.:24001758
-### EXP-7 SYNCHRONOUS-UP-COUNTER
+### EXP-6 SERIAL-IN-SERIAL-OUT-SHIFTREGISTER
 
 # AIM:
 
-To implement 4 bit synchronous up counter and validate functionality.
+To implement  SISO Shift Register using verilog and validating their functionality using their functional tables
 
 # SOFTWARE REQUIRED:
 
@@ -12,41 +12,29 @@ Quartus prime
 
 # THEORY
 
-# 4 bit synchronous UP Counter
+# SISO shift Register
 
-If we enable each J-K flip-flop to toggle based on whether or not all preceding flip-flop outputs (Q) are “high,” we can obtain the same counting sequence as the asynchronous circuit without the ripple effect, since each flip-flop in this circuit will be clocked at exactly the same time:
+A Serial-In Serial-Out shift register is a sequential logic circuit that allows data to be shifted in and out one bit at a time in a serial manner. It consists of a cascade of flip-flops connected in series, forming a chain. The input data is applied to the first flip-flop in the chain, and as the clock pulses, the data propagates through the flip-flops, ultimately appearing at the output.
 
-![image](https://github.com/naavaneetha/SYNCHRONOUS-UP-COUNTER/assets/154305477/d5db3fa0-e413-404c-b80e-b2f39d82e7e8)
+The logic circuit provided below demonstrates a serial-in serial-out (SISO) shift register. It comprises four D flip-flops that are interconnected in a sequential manner. These flip-flops operate synchronously with one another, as they all receive the same clock signal.
 
+![image](https://github.com/naavaneetha/SERIAL-IN-SERIAL-OUT-SHIFTREGISTER/assets/154305477/e81c4072-37f9-46c6-8145-566764b74c3a)
 
-![image](https://github.com/naavaneetha/SYNCHRONOUS-UP-COUNTER/assets/154305477/52cb61eb-d04b-442d-810c-31185a68410b)
+Figure 01 4 Bit SISO Register
 
-Each flip-flop in this circuit will be clocked at exactly the same time.
-The result is a four-bit synchronous “up” counter. Each of the higher-order flip-flops are made ready to toggle (both J and K inputs “high”) if the Q outputs of all previous flip-flops are “high.”
-Otherwise, the J and K inputs for that flip-flop will both be “low,” placing it into the “latch” mode where it will maintain its present output state at the next clock pulse.
-Since the first (LSB) flip-flop needs to toggle at every clock pulse, its J and K inputs are connected to Vcc or Vdd, where they will be “high” all the time.
-The next flip-flop need only “recognize” that the first flip-flop’s Q output is high to be made ready to toggle, so no AND gate is needed.
-However, the remaining flip-flops should be made ready to toggle only when all lower-order output bits are “high,” thus the need for AND gates.
+The synchronous nature of the flip-flops ensures that the shifting of data occurs in a coordinated manner. When the clock signal rises, the input data is sampled and stored in the first flip-flop. On subsequent clock pulses, the stored data propagates through the flip-flops, moving from one flip-flop to the next.
+Each D flip-flop in the circuit has a Data (D) input, a Clock (CLK) input, and an output (Q). The D input represents the data to be loaded into the flip-flop, while the CLK input is connected to the common clock signal. The output (Q) of each flip-flop is connected to the D input of the next flip-flop, forming a cascade.
 
-# Procedure
-1. Type the program in Quartus software.
-
-2. Compile and run the program.
-
-3. Generate the RTL schematic and save the logic diagram.
-
-4. Create nodes for inputs and outputs to generate the timing diagram.
-
-5. For different input combinations generate the timing diagram.
-
+# Procedure:
+Implementing shit in Verilog HDL (Hardware Description Language) involves translating the simplified Boolean expressions into Verilog code to describe the behavior of digital circuits. The basic building blocks in Verilog is module. The module represent a combinational circuit. Use logical operators (&, |, ~, ^) to implement Boolean functions directly. Use built-in gate primitives for basic functions. Use University program VWF to verify the functionality of your Verilog modules. Create waveform and check outputs against expected results.
 # PROGRAM
-![Screenshot 2024-12-23 104115](https://github.com/user-attachments/assets/813ce90d-a608-435b-a7a5-ef0aec49ae38)
+![Screenshot 2024-12-12 133040](https://github.com/user-attachments/assets/235fb92a-ade3-4bb6-808a-6c93883a02df)
 
-# RTL LOGIC UP COUNTER
-![Screenshot 2024-12-23 104129](https://github.com/user-attachments/assets/7221d353-e152-4abd-b914-be8dc98f89da)
+# RTL LOGIC FOR SISO Shift Register
+![Screenshot 2024-12-12 133011](https://github.com/user-attachments/assets/0568ed57-6898-4480-ad54-87757247b2dd)
 
-# TIMING DIAGRAM FOR IP COUNTER
-![Screenshot 2024-12-23 104058](https://github.com/user-attachments/assets/85c81276-adbc-4421-a67f-810cd66d034a)
+# TIMING DIGRAMS FOR SISO Shift Register
+![Screenshot 2024-12-12 132927](https://github.com/user-attachments/assets/f740fa0a-4223-486c-8cb6-4d3d8cfa6062)
 
-# RESULTS
-Implemented 4 bit synchronous up counter and validate functionality.
+# RESULTS:
+implemented SISO Shift Register using verilog and validating their functionality using their functional tables.
